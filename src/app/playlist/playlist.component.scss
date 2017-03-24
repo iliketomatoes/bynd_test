@@ -1,0 +1,21 @@
+@import '../../styles/material';
+// @import '../../styles/settings';
+
+$medium-up-screen-width: 768px;
+
+.pl-container {
+	margin-top: -3rem;
+}
+
+.pl {
+	list-style: none;
+	-webkit-padding-start: 0;
+	-moz-padding-start: 0;
+}
+
+.pl__item {
+	img {
+		width: 320px;
+		height: 180px;
+	}
+}

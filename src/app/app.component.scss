@@ -1,0 +1,10 @@
+@import '../styles/material';
+header {
+    padding: 4rem 1rem 6rem;
+    background: #3feca5;
+    h1 {
+        padding-left: 24px;
+        color: $oil;
+        font-size: 3rem;
+    }
+}

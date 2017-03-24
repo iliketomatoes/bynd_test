@@ -1,0 +1,10 @@
+@import '../../styles/material';
+
+:host {
+	height: 100%;
+	background: mat-color($primary);
+}
+
+.login-card { 
+	margin: 1rem 0;
+}
