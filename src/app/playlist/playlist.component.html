@@ -3,16 +3,18 @@
 		<md-card>
 			<ul class="pl" *ngFor="let video of playlist">
 				<li class="pl__item">
-					<picture>
-						<source media="(max-width: 481px)" srcset="{{ video.snippet.thumbnails.default.url }} 1x,
-							{{ video.snippet.thumbnails.medium.url }} 2x,">
+					<a [routerLink]="['/video', video.snippet.resourceId.videoId]">
+						<picture>
+							<source media="(max-width: 481px)" srcset="{{ video.snippet.thumbnails.default.url }} 1x,
+								{{ video.snippet.thumbnails.medium.url }} 2x,">
 
-						<source media="(min-width: 482px)" srcset="{{ video.snippet.thumbnails.medium.url }} 1x,
-							{{ video.snippet.thumbnails.high.url }} 2x">
+							<source media="(min-width: 482px)" srcset="{{ video.snippet.thumbnails.medium.url }} 1x,
+								{{ video.snippet.thumbnails.high.url }} 2x">
 
-						<img src="{{ video.snippet.thumbnails.medium.url }}" alt="{{ video.snippet.title }}">
-					</picture>
-					{{ video.snippet.title }}
+							<img src="{{ video.snippet.thumbnails.medium.url }}" alt="{{ video.snippet.title }}">
+						</picture>
+					</a>
+					<a [routerLink]="['/video', video.snippet.resourceId.videoId]">{{ video.snippet.title }}</a>
 				</li>
 			</ul>
 		</md-card>

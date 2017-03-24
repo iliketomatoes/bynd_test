@@ -22,6 +22,15 @@ export class VideoService {
 			.map((resp: Response) => resp.json());
 	}
 
+	public getVideo(id: string): Observable<any> {
+		return this.getVideos().map((videos: any) => {
+			let video = videos.items.find((item, index, arr) => {
+				return item.snippet.resourceId.videoId === id;
+			});
+			return video;
+		});
+	}
+
 	protected extractData(res: Response) {
 		let body = res.json();
 		return body.data || {};

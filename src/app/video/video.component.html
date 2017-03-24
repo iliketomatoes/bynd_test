@@ -1,7 +1,10 @@
 <div class="row video-container">
 	<div class="small-12 columns">
 		<md-card *ngIf="video">
-			
+			Video detail {{ video }}
+			<button (click)="goBack()">Back</button>
+			<iframe width="420" height="345" [src]="url">
+			</iframe>
 		</md-card>
 	</div>
 </div>
