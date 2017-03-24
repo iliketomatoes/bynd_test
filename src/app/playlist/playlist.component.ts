@@ -1,18 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { VideoService } from '../video/';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
+import { ISubscription } from 'rxjs/Subscription';
 
 @Component({
 	templateUrl: 'playlist.component.html',
 	styleUrls: ['./playlist.component.scss']
 })
-export class PlaylistComponent implements OnInit {
+export class PlaylistComponent implements OnInit, OnDestroy {
 
 	public playlist: any[];
 	public page: any[];
-	public pages: number;
+	public pages: number[];
+
+	private routeSubscription: ISubscription;
 
 	constructor(public videoService: VideoService, private route: ActivatedRoute) { }
 
@@ -21,9 +24,10 @@ export class PlaylistComponent implements OnInit {
 		this.videoService.getVideos().subscribe(
 			(videos) => {
 				this.playlist = videos;
-				this.pages = Math.round(videos / 5);
+				this.pages = Array(Math.round(videos.length / 5));
+				console.log(this.pages);
 
-				this.route.params
+				this.routeSubscription = this.route.params
 					.switchMap((params: Params) => {
 						return Observable.of(params);
 					})
@@ -35,6 +39,10 @@ export class PlaylistComponent implements OnInit {
 				console.log(err);
 			}
 		);
+	}
+
+	public ngOnDestroy() {
+		this.routeSubscription.unsubscribe();
 	}
 
 	private populatePage(page: number) {

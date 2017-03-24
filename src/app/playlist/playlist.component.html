@@ -17,6 +17,13 @@
 					<a [routerLink]="['/video', video.snippet.resourceId.videoId]">{{ video.snippet.title }}</a>
 				</li>
 			</ul>
+			<nav>
+				<ul class="pl__pagination" *ngFor="let p of pages; let i = index;">
+					<li>
+						<a [routerLink]="['/playlist', i+1]">{{ i+1 }}</a>
+					</li>
+				</ul>
+			</nav>
 		</md-card>
 	</div>
 </div>
