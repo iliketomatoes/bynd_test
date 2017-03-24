@@ -1,8 +1,8 @@
 <div class="row pl-container">
 	<div class="small-12 columns">
 		<md-card>
-			<ul class="pl" *ngFor="let video of page">
-				<li class="pl__item">
+			<ul class="pl">
+				<li *ngFor="let video of page" class="pl__item">
 					<a [routerLink]="['/video', video.snippet.resourceId.videoId]">
 						<picture>
 							<source media="(max-width: 481px)" srcset="{{ video.snippet.thumbnails.default.url }} 1x,
@@ -18,8 +18,8 @@
 				</li>
 			</ul>
 			<nav>
-				<ul class="pl__pagination" *ngFor="let p of pages; let i = index;">
-					<li>
+				<ul class="pl__pagination">
+					<li *ngFor="let p of pages; let i = index;">
 						<a [routerLink]="['/playlist', i+1]">{{ i+1 }}</a>
 					</li>
 				</ul>

@@ -25,7 +25,6 @@ export class PlaylistComponent implements OnInit, OnDestroy {
 			(videos) => {
 				this.playlist = videos;
 				this.pages = Array(Math.round(videos.length / 5));
-				console.log(this.pages);
 
 				this.routeSubscription = this.route.params
 					.switchMap((params: Params) => {
