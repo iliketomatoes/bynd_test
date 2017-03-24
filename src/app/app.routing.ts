@@ -7,12 +7,12 @@ import { LoginComponent }       from './login/login.component';
 export const ROUTES: Routes = [
 	{
 		path: '',
-		redirectTo: 'playlist',
+		redirectTo: 'playlist/1',
 		pathMatch: 'full'
 	},
 
 	{
-		path: 'playlist',
+		path: 'playlist/:page',
 		component: PlaylistComponent
 	},
 

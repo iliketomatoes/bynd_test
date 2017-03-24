@@ -14,7 +14,8 @@ export class VideoComponent implements OnInit {
 	public url: SafeResourceUrl;
 	public baseUrl: string = 'https://www.youtube.com/embed/';
 
-	constructor(public videoService: VideoService,
+	constructor(
+		public videoService: VideoService,
 		private route: ActivatedRoute,
 		private location: Location,
 		private sanitizer: DomSanitizer) { }

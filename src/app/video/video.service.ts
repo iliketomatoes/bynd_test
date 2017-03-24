@@ -19,12 +19,12 @@ export class VideoService {
 			.catch((error: any) => {
 				return this.handleError(error);
 			})
-			.map((resp: Response) => resp.json());
+			.map((resp: Response) => resp.json().items);
 	}
 
 	public getVideo(id: string): Observable<any> {
 		return this.getVideos().map((videos: any) => {
-			let video = videos.items.find((item, index, arr) => {
+			let video = videos.find((item, index, arr) => {
 				return item.snippet.resourceId.videoId === id;
 			});
 			return video;

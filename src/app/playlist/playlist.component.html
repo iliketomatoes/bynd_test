@@ -1,7 +1,7 @@
 <div class="row pl-container">
 	<div class="small-12 columns">
 		<md-card>
-			<ul class="pl" *ngFor="let video of playlist">
+			<ul class="pl" *ngFor="let video of page">
 				<li class="pl__item">
 					<a [routerLink]="['/video', video.snippet.resourceId.videoId]">
 						<picture>
