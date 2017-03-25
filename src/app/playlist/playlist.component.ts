@@ -23,6 +23,7 @@ export class PlaylistComponent implements OnInit, OnDestroy {
 
 		this.videoService.getVideos().subscribe(
 			(videos) => {
+				console.log(videos[0]);
 				this.playlist = videos;
 				this.pages = Array(Math.round(videos.length / 5));
 

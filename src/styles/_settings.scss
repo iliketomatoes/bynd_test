@@ -55,9 +55,13 @@ $foundation-palette: (
   alert: #cc4b37,
 );
 $light-gray: #e6e6e6;
+$gray: #F5F5F5; 
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
-$black: #0a0a0a;
+$green: #3feca5;
+$blue: #40AFC0;
+$oil: #313B48;
+$black: rgba(0,0,0,.87);
 $white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
@@ -93,8 +97,8 @@ $breakpoint-classes: (small medium large);
 $grid-row-width: $global-width;
 $grid-column-count: 12;
 $grid-column-gutter: (
-  small: 20px,
-  medium: 30px,
+  small: 12px,
+  medium: 18px,
 );
 $grid-column-align-edge: true;
 $block-grid-max: 8;
@@ -103,7 +107,7 @@ $block-grid-max: 8;
 // ------------------
 
 $header-font-family: $body-font-family;
-$header-font-weight: $global-weight-normal;
+$header-font-weight: 700;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-color: inherit;
@@ -120,9 +124,9 @@ $header-styles: (
   ),
   medium: (
     'h1': ('font-size': 48),
-    'h2': ('font-size': 40),
-    'h3': ('font-size': 31),
-    'h4': ('font-size': 25),
+    'h2': ('font-size': 32),
+    'h3': ('font-size': 28),
+    'h4': ('font-size': 24),
     'h5': ('font-size': 20),
     'h6': ('font-size': 16),
   ),
@@ -139,10 +143,10 @@ $code-font-weight: $global-weight-normal;
 $code-background: $light-gray;
 $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
-/*$anchor-color: map-get($accent);
+$anchor-color: #651fff;
 $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
 $anchor-text-decoration: none;
-$anchor-text-decoration-hover: none;*/
+$anchor-text-decoration-hover: none;
 $hr-width: $global-width;
 $hr-border: 1px solid $medium-gray;
 $hr-margin: rem-calc(20) auto;

@@ -23,6 +23,7 @@ import { AppState, InternalStateType } from './app.service';
 import { LoginComponent } from './login/login.component';
 import { PlaylistComponent } from './playlist';
 import { VideoComponent, VideoService } from './video';
+import { TruncatePipe } from './pipes/truncate';
 import { NoContentComponent } from './no-content';
 
 import '../styles/app.scss';
@@ -51,7 +52,8 @@ type StoreType = {
 		LoginComponent,
 		PlaylistComponent,
 		VideoComponent,
-		NoContentComponent
+		NoContentComponent,
+		TruncatePipe
 	],
 	bootstrap: [AppComponent],
 	providers: [

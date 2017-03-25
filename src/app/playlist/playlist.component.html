@@ -1,22 +1,7 @@
 <div class="row pl-container">
 	<div class="small-12 columns">
-		<md-card>
-			<ul class="pl">
-				<li *ngFor="let video of page" class="pl__item">
-					<a [routerLink]="['/video', video.snippet.resourceId.videoId]">
-						<picture>
-							<source media="(max-width: 481px)" srcset="{{ video.snippet.thumbnails.default.url }} 1x,
-								{{ video.snippet.thumbnails.medium.url }} 2x,">
-
-							<source media="(min-width: 482px)" srcset="{{ video.snippet.thumbnails.medium.url }} 1x,
-								{{ video.snippet.thumbnails.high.url }} 2x">
-
-							<img src="{{ video.snippet.thumbnails.medium.url }}" alt="{{ video.snippet.title }}">
-						</picture>
-					</a>
-					<a [routerLink]="['/video', video.snippet.resourceId.videoId]">{{ video.snippet.title }}</a>
-				</li>
-			</ul>
+		<div class="mat-card">
+			<h2>My playlist</h2>
 			<nav>
 				<ul class="pl__pagination">
 					<li *ngFor="let p of pages; let i = index;">
@@ -24,6 +9,26 @@
 					</li>
 				</ul>
 			</nav>
-		</md-card>
+			<ul class="pl">
+				<li *ngFor="let video of page" class="pl__item">
+					<a [routerLink]="['/video', video.snippet.resourceId.videoId]">
+						<picture>
+							<source media="(max-width: 481px)" srcset="{{ video.snippet.thumbnails.default.url }} 1x,
+									{{ video.snippet.thumbnails.medium.url }} 2x,">
+
+							<source media="(min-width: 482px)" srcset="{{ video.snippet.thumbnails.medium.url }} 1x,
+									{{ video.snippet.thumbnails.high.url }} 2x">
+
+							<img src="{{ video.snippet.thumbnails.medium.url }}" alt="{{ video.snippet.title }}">
+						</picture>
+					</a>
+					<h4>
+						<a [routerLink]="['/video', video.snippet.resourceId.videoId]">{{ video.snippet.title }}</a>
+					</h4>
+					<span class="pl__pubdate">Published on {{ video.snippet.publishedAt | date }}</span>
+					<p class="pl__desc">{{ video.snippet.description | myTruncate : 180 }}</p>
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>
