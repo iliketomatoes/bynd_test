@@ -1,10 +1,24 @@
 @import '../../styles/settings';
 $medium: map-get($breakpoints, 'medium');
 $large: map-get($breakpoints, 'large');
-
 $small-screen-img-width: 100%;
-$medium-screen-img-width: auto;
-$large-screen-img-width: 420px;
+$medium-screen-img-width: 100%;
+$large-screen-img-width: 54%;
+$std-card-gutter: 18px;
+.pl-card {
+	background: #FFF;
+	box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+	display: block;
+	position: relative;
+	padding: 24px;
+	border-radius: 2px;
+	margin: 0 auto 1rem;
+	max-width: 380px;
+	@media screen and (min-width: $large) {
+		max-width: none;
+	}
+}
+
 
 /*
 =========================================
@@ -25,59 +39,108 @@ ul {
 
 /*
 =========================================
+PAGINATION
+=========================================*/
+
+.pl__pagination {
+	margin: 0 0 12px 0;
+	li {
+		display: inline-block;
+		font-size: 14px;
+		font-weight: 700;
+	}
+	.material-icons {
+		vertical-align: middle;
+		font-size: 16px;
+	}
+}
+
+.pl__pagination__li {
+	margin: 0 0.2rem;
+}
+
+.pl__page-index {
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	text-align: center;
+	border-radius: 50%;
+	&.current {
+		color: #FFF;
+		background-color: $anchor-color;
+	}
+}
+
+.disabled a {
+	color: rgba(0, 0, 0, .34);
+	cursor: not-allowed;
+}
+
+
+/*
+=========================================
 PLAYLIST ITEMS
 =========================================*/
 
 .pl__item {
 	position: relative;
 	padding: 18px 0;
-
+	overflow: auto;
 	&::before {
 		position: absolute;
 		top: 0;
 		display: table;
 		content: ' ';
 		width: 100%;
-		border-top: 1px solid rgba(0,0,0,.08);
+		border-top: 1px solid rgba(0, 0, 0, .08);
 	}
-
 	&::after {
 		display: table;
 		content: ' ';
 	}
-
 	img {
-		max-width: 100%;
-		height: auto;
+		width: 100%;
+		height: 200px;
 		@media screen and (min-width: ($medium)) {
 			width: $medium-screen-img-width;
 			height: 220px;
 		}
 		@media screen and (min-width: $large) {
+			float: left;
 			width: $large-screen-img-width;
 			height: 263px;
 		}
 	}
 }
 
-.pl__row {
+.pl__snippet {
+	float: left;
 	position: relative;
+	word-break: break-word;
+	width: 100%;
+	padding: 0 0 18px 0;
+	@media screen and (min-width: $large) {
+		float: right;
+		width: 100% - $large-screen-img-width;
+		padding: 0 0 0 18px;
+	}
 }
 
 .pl__pubdate {
 	margin-top: 10px;
 	font-weight: 700;
 	font-size: 15px;
-	color: rgba(0,0,0,.57);
+	color: rgba(0, 0, 0, .57);
 }
 
 .pl__desc {
-	position: absolute;
-	bottom: 0;
-	left: ($large-screen-img-width + 16px );
-	margin: 0 24px 18px 0;
-	word-break: break-word;
-	@media screen and (max-width: ($medium)) {
-		display: none;
+	margin: $std-card-gutter 0 0;
+	display: none;
+	@media screen and (min-width: $large) {
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: $large-screen-img-width;
+		margin: $std-card-gutter 0 $std-card-gutter $std-card-gutter;
 	}
 }
