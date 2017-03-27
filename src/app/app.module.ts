@@ -1,4 +1,5 @@
 import { NgModule, ApplicationRef } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -14,13 +15,9 @@ import {
 
 import { ENV_PROVIDERS } from './environment';
 
-// Angular material design 2
-import { MaterialModule } from '@angular/material';
-
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { LoginComponent } from './login/login.component';
 import { PlaylistComponent } from './playlist';
 import { VideoComponent, VideoService } from './video';
 import { TruncatePipe } from './pipes/truncate';
@@ -43,13 +40,12 @@ type StoreType = {
 @NgModule({
 	imports: [
 		BrowserModule,
+		HttpModule,
 		RouterModule.forRoot(ROUTES),
-		FormsModule,
-		MaterialModule
+		FormsModule
 	],
 	declarations: [
 		AppComponent,
-		LoginComponent,
 		PlaylistComponent,
 		VideoComponent,
 		NoContentComponent,

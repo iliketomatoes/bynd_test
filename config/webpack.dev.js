@@ -162,7 +162,6 @@ module.exports = function (options) {
             '@angular/forms',
             '@angular/http',
             '@angular/router',
-            '@angular/material',
             '@angularclass/hmr',
             'rxjs',
           ]

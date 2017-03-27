@@ -9,7 +9,7 @@ import { AppState } from './app.service';
 	template: `
 		<header>
 			<div class="row">
-				<div class="small-12 columns">
+				<div class="small-12 columns small-text-center">
 					<h1>BYND playlist test</h1>
 				</div>
 			</div>

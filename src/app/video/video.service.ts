@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Rx';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/observable/throw';
 
@@ -39,7 +39,7 @@ export class VideoService {
 	protected handleError(error: Response | any) {
 		let errMsg: string;
 		if (error instanceof Response) {
-			errMsg = `${error.status} Lemonzie RestService - ${error.toString()}`;
+			errMsg = `${error.status} RestService - ${error.toString()}`;
 		} else {
 			errMsg = error.message ? error.message : error.toString();
 		}
