@@ -20,6 +20,12 @@ ul {
 	-moz-padding-start: 0;
 }
 
+.pl__title {
+	margin-bottom: 0.9rem;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
 /*
 =========================================
 PAGINATION
@@ -32,6 +38,12 @@ PAGINATION
 		font-size: 14px;
 		font-weight: 700;
 	}
+
+	li, a {
+		user-select: none;
+		-webkit-user-select: none;
+	}
+	
 	.material-icons {
 		vertical-align: middle;
 		font-size: 16px;
