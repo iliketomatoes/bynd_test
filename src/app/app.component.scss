@@ -6,6 +6,8 @@ header {
 	
 	h1 {
 		padding-left: 24px;
+		user-select: none;
+		-webkit-user-select: none;
 	}
 
 	@media screen and (min-width: $large) {

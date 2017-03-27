@@ -2,7 +2,7 @@
 	<div class="small-12 columns">
 		<div class="mat-card">
 			<h2 class="pl__title">My playlist</h2>
-			<ul class="pl__pagination" role="navigation" aria-label="Pagination">
+			<ul class="pl__pagination" role="navigation" aria-label="Pagination" *ngIf="page">
 				<li [class.disabled]="isFirstPage">
 					<a aria-label="Previous page" (click)="goToPrev()"><i class="material-icons">keyboard_arrow_left</i>Prev</a>
 				</li>
@@ -35,7 +35,7 @@
 					<p class="pl__desc" [class.hide]="video.snippet.description.length === 0">{{ video.snippet.description | myTruncate : 200 }}</p>
 				</li>
 			</ul>
-			<ul class="pl__pagination" role="navigation" aria-label="Pagination">
+			<ul class="pl__pagination" role="navigation" aria-label="Pagination" *ngIf="page">
 				<li [class.disabled]="isFirstPage">
 					<a aria-label="Previous page" (click)="goToPrev()"><i class="material-icons">keyboard_arrow_left</i>Prev</a>
 				</li>
