@@ -15,6 +15,7 @@ export class VideoComponent implements OnInit, AfterViewChecked {
 	public queryParams = '?autoplay=1';
 
 	private iframeRatio = .61;
+	private currentWindowWidth: number;
 
 	constructor(
 		public videoService: VideoService,
@@ -23,6 +24,9 @@ export class VideoComponent implements OnInit, AfterViewChecked {
 		private location: Location) { }
 
 	public ngOnInit(): void {
+
+		// Capture current window width
+		this.currentWindowWidth = window.innerWidth;
 
 		this.route.params
 			.switchMap((params: Params) => this.videoService.getVideo(params['id']))
@@ -41,6 +45,12 @@ export class VideoComponent implements OnInit, AfterViewChecked {
 
 	// Remove iframe onResize event because we need to recalculate the size of it
 	public onResize(event) {
+
+		// On mobile phones resize event is fired even if the window width does not actually change
+		if (this.currentWindowWidth === window.innerWidth) { return; };
+
+		// If the size of the screen actually changed, we have to rebuild the iframe
+		this.currentWindowWidth = window.innerWidth;
 		this.removeIframe();
 	}
 
